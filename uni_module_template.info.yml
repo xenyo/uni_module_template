@@ -1,6 +1,7 @@
 name: Uni Module Template
 description: Drupal module template Xenyo Uni Frameworks sites.
 type: module
+hidden: true
 package: Xenyo
 core_version_requirement: ^9 || ^10
 asset_autoload: true
