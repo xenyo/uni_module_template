@@ -4,14 +4,22 @@ Drupal module template for Xenyo Uni Framework.
 
 ## Quick start
 
+### Decide module name
+
 Decide on a name for your new module. The name must:
 
 - Only include lowercase letters, digits and underscores.
 - Begin with the namespace of the client or site, depending on the scope of the module.
 
+### Create GitHub repository
+
 Create a new GitHub repository based on this template. You can select this
 template when creating the repository or click the *Use this template* button at
 https://github.com/xenyo/uni_module_template.
+
+Clone the new repository to the `web/modules/custom` directory of your Drupal project.
+
+### Update name and description
 
 Update the name and description in the following files:
 
@@ -22,12 +30,11 @@ Update the name and description in the following files:
 
 In addition, rename `uni_module_template.info.yml` and delete `hidden: true` from the file.
 
-Clone the new repository to the `web/modules/custom` directory of your Drupal
-project and install the module from the Extend page or from the command line:
+### Publish to Satis
 
-```
-drush en my_new_module
-```
+Open an issue at https://github.com/xenyo/satis to request your module to be added to https://packages.xenyo.net.
+
+Once added, you will be able to install your module using Composer.
 
 ## Default configuration
 
