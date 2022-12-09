@@ -68,7 +68,7 @@ Watch files for changes:
 npm run watch
 ```
 
-### Build sources
+### Sources
 
 Every file ending with `.mjs` and `.scss` in the module or any subdirectory will be automatically picked up by the build system.
 
@@ -76,7 +76,7 @@ Files inside `node_modules` are excluded for obvious reasons.
 
 Files with filenames that begin with an underscore are also excluded. This is mainly to allow some files to be imported instead of being built directly.
 
-### Build outputs
+### Outputs
 
 Each build output will be placed next to the corresponding source file, along with the sourcemap. For example:
 
@@ -105,3 +105,66 @@ To use it, add the following to the top of any sass file:
 You can add custom variables and mixins to `sass-utils/_index.scss`.
 
 See https://github.com/xenyo/sass-utils for details.
+
+## Submodules
+
+Features are grouped in separate submodules in the `modules` directory.
+
+Suppose you want to add a feature called Example.
+
+Create `modules/eduhk_example/example.info.yml`:
+
+```yml
+name: EdUHK - Example
+description: Provides <em>EdUHK - Example</em> feature and related configuration.
+type: module
+package: EdUHK
+core_version_requirement: '^8.9 || ^9'
+# dependencies:
+# config_devel:
+```
+
+Install the module:
+
+```
+drush en eduhk_example
+```
+
+Add the list of configuration items to example.info.yml:
+
+```yml
+config_devel:
+  install:
+    - # List of configuration items
+```
+
+Export the configuration to the module:
+
+```
+drush cde eduhk_example
+```
+
+Inspect the exported configs and add enforced dependencies to top level
+configuration items:
+
+```yml
+dependencies:
+  # ...
+  enforced:
+    module:
+      - eduhk_example
+```
+
+Import the updated configuration:
+
+```
+drush cdi eduhk_example
+```
+
+Define dependencies in `example.info.yml` by examining the module dependencies
+of configuration items:
+
+```yml
+dependencies:
+  - # List of modules that the feature depends on
+```
