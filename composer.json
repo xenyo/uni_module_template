@@ -1,5 +1,5 @@
 {
     "name": "xenyo/uni_module_template",
     "description": "Drupal module template for Xenyo Uni Framework.",
-    "type": "drupal-custom-module"
+    "type": "drupal-module"
 }
